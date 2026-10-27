@@ -107,24 +107,27 @@ main { position: relative; z-index: 1; }
 .menu-open .nav__menu-icon i:last-child { transform: translateY(-3px) rotate(-45deg); }
 @media (max-width: 600px) { .nav__live { display: none; } }
 
-/* Credit */
+/* Credit: a sticky K. button that opens leftward to "art of difference" on hover */
 .credit {
-  position: fixed; right: 0; bottom: calc(50% - 24px); z-index: 85; display: flex; flex-direction: column-reverse; align-items: center;
-  width: 44px; height: 48px; overflow: hidden; border-radius: 10px 0 0 10px;
-  background: var(--fg); color: var(--bg); transition: height 0.8s var(--ease);
+  --size: 52px;
+  position: fixed; right: var(--gutter); bottom: var(--gutter); z-index: 85;
+  display: flex; align-items: center; justify-content: flex-end;
+  height: var(--size); max-width: var(--size); overflow: hidden; border-radius: 999px;
+  background: var(--fg); color: var(--bg); box-shadow: 0 10px 30px rgba(7, 9, 15, 0.18);
+  transition: max-width 0.8s var(--ease), background-color 0.5s, color 0.5s;
 }
-.credit__k { flex: none; height: 48px; display: grid; place-items: center; font-family: var(--serif); font-size: 1.3rem; line-height: 1; letter-spacing: -0.02em; }
+.credit__k {
+  flex: none; width: var(--size); height: var(--size); display: flex; align-items: center; justify-content: center;
+  font-family: var(--serif); font-size: 1.5rem; line-height: 1; letter-spacing: -0.02em;
+}
 .credit i { font-style: normal; color: var(--hot); }
 .credit__text {
-  writing-mode: vertical-rl; transform: rotate(180deg); white-space: nowrap; padding: 16px 0 4px;
-  font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
-  clip-path: inset(0 0 100% 0); transition: clip-path 0.8s var(--ease);
+  white-space: nowrap; padding-left: 1.4rem; font-family: var(--serif); font-style: italic; font-size: 1.2rem; line-height: 1;
+  opacity: 0; transform: translateX(12px); transition: opacity 0.4s, transform 0.8s var(--ease-out);
 }
-.credit__text strong { font-weight: 700; }
-.credit__text em { font-family: var(--serif); font-size: 1.05rem; letter-spacing: 0.02em; text-transform: none; margin-top: 0.5em; }
-.credit:hover, .credit:focus-visible { height: 268px; }
-.credit:hover .credit__text, .credit:focus-visible .credit__text { clip-path: inset(0 0 0 0); transition-delay: 0.15s; }
-@media (max-width: 900px) { .credit { width: 38px; height: 42px; } .credit__k { height: 42px; font-size: 1.1rem; } }
+.credit:hover, .credit:focus-visible { max-width: 260px; }
+.credit:hover .credit__text, .credit:focus-visible .credit__text { opacity: 1; transform: none; transition-delay: 0.18s; }
+@media (max-width: 900px) { .credit { --size: 44px; } .credit__k { font-size: 1.25rem; } }
 
 /* Menu */
 .menu {

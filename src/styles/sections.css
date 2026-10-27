@@ -20,7 +20,7 @@ section { position: relative; padding: clamp(6rem, 14vw, 13rem) var(--gutter); }
 .hero__line { display: block; white-space: nowrap; }
 .hero__line--it { font-style: italic; padding-left: 9vw; letter-spacing: -0.035em; }
 .char { padding-right: 0.02em; }
-.hero__foot { display: grid; grid-template-columns: 1.4fr 1fr auto; align-items: end; gap: var(--gutter); }
+.hero__foot { display: grid; grid-template-columns: 1.4fr 1fr auto; align-items: end; gap: var(--gutter); padding-right: calc(52px + var(--gutter)); }
 .hero__lede { font-size: clamp(1rem, 1.35vw, 1.3rem); max-width: 24ch; line-height: 1.3; }
 .hero__meta { color: var(--muted); line-height: 1.6; }
 .hero__scroll { display: flex; align-items: center; gap: 0.8rem; }
@@ -60,7 +60,7 @@ section { position: relative; padding: clamp(6rem, 14vw, 13rem) var(--gutter); }
 .show__role { font-family: var(--serif); font-style: italic; font-size: clamp(1.3rem, 1.8vw, 1.9rem); color: var(--hot); margin: 0.6rem 0 1.6rem; }
 .show__text { max-width: 34ch; color: var(--muted); font-size: 0.98rem; }
 
-.dial { position: absolute; left: var(--gutter); right: var(--gutter); bottom: var(--gutter); height: 22px; }
+.dial { position: absolute; left: var(--gutter); right: calc(52px + var(--gutter) * 2); bottom: calc(var(--gutter) + 15px); height: 22px; }
 .dial__scale { display: flex; justify-content: space-between; align-items: flex-end; height: 100%; }
 .dial__scale i { width: 1px; height: 35%; background: var(--muted); }
 .dial__scale i.is-major { height: 100%; background: var(--fg); }
@@ -148,4 +148,6 @@ section { position: relative; padding: clamp(6rem, 14vw, 13rem) var(--gutter); }
 .contact__links a:hover::after { transform: scaleX(1); transform-origin: left; }
 .footer { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; padding-top: 1.4rem; margin-top: 6vw; border-top: 1px solid color-mix(in srgb, var(--fg) 30%, transparent); color: var(--muted); }
 .footer a { color: var(--fg); }
+/* Leave room for the fixed K. button in the corner. */
+.footer { padding-right: calc(52px + var(--gutter)); }
 @media (max-width: 700px) { .contact__links { text-align: left; } .contact__title em { padding-left: 0; } }
